@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: darkolivegreen;
+        color: white;
+    }
+ 
+    #game-table,tr,th,td{
+        width: 40%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        text-align: center;
+        margin: auto;
+    }
+ 
+    h3 a {
+        color: white;
+        text-decoration: none;
+    }
+ 
+    h2, #game-div{
+        text-align: center;
+    }
+  
+</style>
+<script>
+    async function getGame(){
+        const resp = await fetch(' http://localhost:3000/games/');
+        var data = await resp.json();
+        console.log(data);
+        let tab = `<tr> 
+                   <th> ID </th>
+                   <th> Game </th>
+                  
+                   </tr>`;
+                   for( let p of data){
+                    tab += `<tr> 
+                            <td>${p.id}</td>
+                            <td>${p.game}</td>
+                                                     
+                        </tr>`
+        }
+        document.getElementById("game-table").innerHTML = tab;
+    }
+                  
+ 
+    function addGame() {
+        //var ename = document.getElementById('name').value;
+        var egame = document.getElementById('game').value;
+        let data = {
+            game: egame
+        }
+        fetch('http://localhost:3000/games', {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers : {
+            "Content-Type" : "application/json",
+            "Access-Control-Allow-Origin":"*"
+        }
+    }).then(response => response.json())
+      .then(json => console.log(json));
+
+      alert("Game Added Successfully!!")
+    }
+</script>
+    
+<body>
+    <h3> <span> <a href="./home.html">Back</a> </span> </h3>
+    <h2> Games List</h2>
+    <div id="game-div">
+        <!--Name : <input type="text" id="name" />-->
+        Game: <input type="text" id="game" />
+        <input type="submit" value="Add Game" onclick="addGame()"/>
+        <input type="submit" value="List Game" onclick="getGame()" />
+    </div>
+    <br /> <br />
+    <table id="game-table">          
+    </table>
+    
+</body>
+</html>

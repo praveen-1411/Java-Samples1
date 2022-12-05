@@ -1,0 +1,203 @@
+<!DOCTYPE html>  
+<html lang = "en">  
+<head>  
+<title> JavaScript Calculator </title>  
+  
+<style>  
+    body {
+        background-color: teal;
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        margin-top: 50px;
+    }
+    .screen{
+        background-color: grey;
+        border: solid black 2px;
+        color: white;
+        font-size: medium;
+        width: 90%;
+        cursor: default;
+        padding: 10px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    input[type='button']:hover{
+        background-color: whitesmoke;
+    }
+
+
+    input[type='button']:active{
+        background-color: orangered;
+    }
+
+    .operator {
+        background-color: orange;
+        padding: 5px;
+        color: black;
+        border: solid black 2px;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+    }
+    .button {
+        padding: 5px;
+        height: 40px;
+        color: black;
+        border: solid black 2px;
+        width: 100%;
+        cursor: pointer;
+    }
+    .decimal {
+        background-color: lightblue;
+        padding: 5px;
+        color: black;
+        border: solid black 2px;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+    }
+    .clear {
+        background-color: lightsalmon;
+        padding: 5px;
+        color: black;
+        border: solid black 2px;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+        margin: auto;
+        margin-bottom: 10px;
+
+    }
+    .equal {
+        background-color: lightgreen;
+        padding: 5px;
+        color: black;
+        border: solid black 2px;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+    }
+    .container {
+    padding: 15px;
+    color: black;
+    border: solid black 2px;
+    width: 40%;
+    background-color: white;
+    align-self: center;
+    display: block;
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 5x 10px 20px black;
+
+    }
+    table {
+        width: 100%;
+    }
+
+  
+</style>  
+<script>
+    function display(val){
+
+    document.getElementById('result').value += val
+
+    //return val
+
+    }
+
+    function solve(){
+
+    let x = document.getElementById('result').value
+
+    let y = eval(x);
+
+    document.getElementById('result').value = y
+
+    //return y
+
+    }
+
+    function clearScreen(){
+
+        document.getElementById('result').value = ''
+
+    }
+
+
+</script>  
+</head>  
+<body>  
+    <h1 style="text-align:center">Calculator App</h1>
+
+    <div class="container">
+
+    <br>
+
+    <table>
+
+        <tr>
+
+            <td colspan="3"><input type='text' id='result' class ='screen' style="text-align: right;"></td>
+
+            <td>
+
+                <input type='button' value = 'C' onclick="clearScreen()" class="clear"/>
+
+            </td>
+
+        </tr>
+        <tr>
+
+    <td><input type="button" value="7" class="button" onClick="display('7')"></input></td>
+
+    <td><input type="button" value="8" class="button " onClick="display('8')"></input></td>
+
+    <td><input type="button" value="9" class="button" onClick="display('9')"></input></td>
+
+    <td><input type="button" value="/" class="operator" onClick="display('/')"></input></td>
+
+    </tr>
+
+    <tr>
+    <td><input type="button" value="4" class="button" onClick="display('4') "></input></td>
+
+    <td><input type="button" value="5" class="button" onClick="display('5')"></input></td>
+
+    <td><input type="button" value="6" class="button" onClick="display('6')"></input></td>
+
+    <td><input type="button" value="" class="operator" onClick="display('')"></input></td>
+
+    </tr>
+
+    <tr>
+
+    <td><input type="button" value="1" class="button" onClick="display('1')"></input></td>
+
+    <td><input type="button" value="2" class="button" onClick="display('2')"></input></td>
+
+    <td><input type="button" value="3" class="button" onClick="display('3')"></input></td>
+
+    <td><input type="button" value="-" class="operator" onClick="display('-')"></input></td>
+
+    </tr>
+    <tr>
+
+    <td><input type="button" value="0" class="button" onClick="display('0')"></input></td>
+
+    <td><input type="button" value="." class="decimal" onClick="display('.')"></input></td>
+
+    <td><input type="button" value= "=" class="equal" onClick="solve()"></input></td>
+
+    <td><input type="button" value="+" class="operator" onClick="display('+')"></input></td>
+
+    </tr>
+
+</table>
+
+    
+</form>  
+</div>  
+</body>  
+</html>

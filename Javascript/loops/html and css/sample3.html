@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function display() {
+        console.log(document.getElementById("fname").value);
+        console.log(document.getElementById("lname").value);
+        console.log(document.getElementsByTagName("gender").value);
+        console.log(document.getElementById("no").value);
+        console.log(document.getElementById("no1").value);
+        console.log(document.getElementById("h.no").value);
+        console.log(document.getElementById("area").value);
+        console.log(document.getElementById("street").value);
+        console.log(document.getElementById("landmark").value);
+        console.log(document.getElementById("city").value);
+        console.log(document.getElementById("state").value);
+        console.log(document.getElementById("pincode").value);
+        console.log(document.getElementById("qualification").value);
+        console.log(document.getElementById("dob").value);
+        console.log(document.getElementById("reptdate").value);
+        console.log(document.getElementById("dept").value);
+        console.log(document.getElementById("deptId").value);
+        console.log(document.getElementById("project").value);
+        console.log(document.getElementById("pid").value);
+        console.log(document.getElementById("salary").value);
+        console.log(document.getElementById("team").value);
+        console.log(document.getElementById("role").value);
+
+
+    } 
+</script>
+<body>
+    First Name : <input type="text" id="fname" /><br/> <br/>
+    Last Name : <input type="text" id="lname" /> <br/> <br/>
+    ID : <input type="number" /> <br/> <br/>
+    <input type="radio" name="gender" value="male"/>Male
+    <input type="radio" name="gender" value="female"/>Female<br/><br/>
+    Mobile No : <input type="number" id="no" /> <br/> <br/>
+    Alternate Mobile No : <input type="number" id="no1" /> <br/> <br/>
+    Address:
+    H.No : <input type="text" id= "h.no" /> <br/> <br/>
+    Area : <input type="text" id= "area" /> <br/> <br/>
+    Street : <input type="text" id="street" /> <br/> <br/>
+    Landmark :<input type="text" id="landmark" /> <br/> <br/>
+    City: <input type="text" id="city" /> <br/> <br/>
+    State: <input type="text" id="state" /> <br/> <br/>
+    Pincode: <input type="number" id="pincode" /> <br/> <br/>
+    Qualification : <input type="text" id="qualification" /> <br/> <br/>
+    Date Of Birth : <input type="text" id="dob" /> <br/> <br/>
+    Reporting Date : <input type="text" id="reptdate" /> <br/> <br/>
+    Department : <input type="text" id="dept" /> <br/> <br/>
+    Department Id : <input type="number" id="deptId" /> <br/> <br/>
+    Project : <input type="text" id="project" /> <br/> <br/>
+    Project Id : <input type="number" id="pid" /> <br/> <br/>
+    Project Technology : 
+    <select>
+        <option>JAVA</option>
+        <option>.Net</option>
+        <option>Unix</option>
+    </select>
+    Salary: <input type="number" id="salary" /> <br/> <br/>
+    Team: <input type="text" id="team" /> <br/> <br/>
+    Role: <input type="text" id="role" /> <br/> <br/>
+    <input type = "submit" value = "SUBMIT" onclick = "display()"/>
+    
+
+</body>
+</html>

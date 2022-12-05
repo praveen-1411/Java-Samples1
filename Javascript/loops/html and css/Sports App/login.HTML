@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+
+        background-color: lightsteelblue;
+    }
+    #login-div {
+        border: 2px solid black;
+        width: 30%;
+        color: white;
+        padding: 20px 20px 20px 20px;
+        text-align : center;
+        margin : auto;
+        margin-top : 15%;
+    }
+    a {
+        color : whitesmoke;
+    }
+</style>
+<script>
+    async function login(){
+        let uname = document.getElementById('username').value;
+        let pass = document.getElementById('password').value;
+        const resp = await fetch('http://localhost:3000/Users');
+        var data = await resp.json();
+        console.log(data);
+              
+        var flag=false;
+
+        for(i=0;i<data.length;i++){
+            console.log(data[i].username + " " + data[i].password);
+    
+            if(data[i].username == uname && data[i].password == pass){
+                //alert("successfull ");
+                flag = true;
+                break;
+            }else{
+                flag = false;
+                break;
+                //alert("verify credentials");
+            }
+        }
+        if(flag){
+            //alert("window.href");
+            window.location.href="Shome.html";
+        }else{
+            alert("Verify credentials");
+        }
+        
+    }
+       
+</script>
+<body>
+    <div id= "login-div">
+        <h2> Login </h2>
+        Username: <input type="text" id="username" /> <br /> <br />
+        Password: <input type="password" id="password" /> <br /><br />
+        <input type="submit" value="Login" onclick="login()" /> <br /> <br />
+        <a href = "./SignUp.html"> Not Registered? Sign Up </a>
+        </div>
+        <!--<table id="game-table">          
+        </table>-->
+    
+</body>
+</html>

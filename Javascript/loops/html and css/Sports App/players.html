@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: lightcoral;
+        color: white;
+    }
+ 
+    #player-table,tr,th,td{
+        width: 40%;
+        border: 2px solid white;
+        border-collapse: collapse;
+        text-align: center;
+        margin: auto;
+    }
+ 
+    h3 a {
+        color: white;
+        text-decoration: none;
+    }
+ 
+    h2, #player-div{
+        text-align: center;
+    }
+  
+</style>
+<script>
+    async function getPlayer(){
+        const resp = await fetch(' http://localhost:3000/players/');
+        var data = await resp.json();
+        console.log(data);
+        let tab = `<tr> 
+                   <th> ID </th>
+                   <th> Name </th>
+                   <th> Game </th>
+                  
+                   </tr>`;
+                   for( let p of data){
+                    tab += `<tr> 
+                            <td>${p.id}</td>
+                            <td>${p.name}</td>
+                            <td>${p.game}</td>
+                                                     
+                        </tr>`
+        }
+        document.getElementById("player-table").innerHTML = tab;
+    }
+                  
+ 
+    function addPlayer() {
+        var ename = document.getElementById('name').value;
+        var egame = document.getElementById('game').value;
+        let data = {
+            name: ename,
+            game: egame
+        }
+        fetch('http://localhost:3000/players', {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers : {
+            "Content-Type" : "application/json",
+            "Access-Control-Allow-Origin":"*"
+        }
+    }).then(response => response.json())
+      .then(json => console.log(json));
+
+      alert("Player Added Successfully!!")
+    }
+</script>
+    
+<body>
+    <h3> <span> <a href="./home.html">Back</a> </span> </h3>
+    <h2> Players List</h2>
+    <div id="player-div">
+        Name : <input type="text" id="name" />
+        Game: <input type="text" id="game" />
+        <input type="submit" value="Add Player" onclick="addPlayer()"/>
+        <input type="submit" value="List Players" onclick="getPlayer()" />
+    </div>
+    <br /> <br />
+    <table id="player-table">          
+    </table>
+    
+</body>
+</html>
